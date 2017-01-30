@@ -18,7 +18,7 @@ enum MediaType {
 struct MediaTypeCategory {
     var mediaType : MediaType
     
-    func mediaTypeRoute()-> String {
+    func mediaTypeRoute(mediaType : MediaType)-> String {
         switch mediaType {
         case .nowPlaying: return "/movie/now_playing"
         case .popular : return "/movie/popular"
