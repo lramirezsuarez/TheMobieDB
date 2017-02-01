@@ -15,15 +15,17 @@ enum MediaType {
     case upcoming
 }
 
-struct MediaTypeCategory {
-    var mediaType : MediaType
-    
-    func mediaTypeRoute(mediaType : MediaType)-> String {
-        switch mediaType {
+
+extension MediaType{
+    var Route: String {
+        switch self {
         case .nowPlaying: return "/movie/now_playing"
         case .popular : return "/movie/popular"
         case .topRated : return "/movie/top_rated"
         case .upcoming : return "/movie/upcoming"
         }
     }
+    
 }
+
+

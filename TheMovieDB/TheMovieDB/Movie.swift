@@ -14,7 +14,7 @@ protocol MediaInfo {
     var overview : String { get }
     var year : Int { get }
     var rating : Int { get set}
-    var poster : NSURL { get }
+    var poster : URL { get }
 }
 
 struct Movie : MediaInfo {
@@ -23,9 +23,9 @@ struct Movie : MediaInfo {
     var overview : String
     var year : Int
     var rating : Int
-    var poster: NSURL
+    var poster: URL
     
-    init (id : Int, name : String, overview : String, year : Int, rating : Int, poster : NUSRL) {
+    init (id : Int, name : String, overview : String, year : Int, rating : Int, poster : URL) {
         self.id = id
         self.name = name
         self.overview = overview
