@@ -21,6 +21,7 @@
 		F86187721E3FD302005483C0 /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86187711E3FD302005483C0 /* MoviesResponse.swift */; };
 		F86187741E420E88005483C0 /* MediaSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86187731E420E88005483C0 /* MediaSingleton.swift */; };
 		F86187761E421B0D005483C0 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86187751E421B0D005483C0 /* MovieTableViewCell.swift */; };
+		F8EA728D1E43A9D500F13AC5 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EA728C1E43A9D500F13AC5 /* NowPlayingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F86187711E3FD302005483C0 /* MoviesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
 		F86187731E420E88005483C0 /* MediaSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaSingleton.swift; sourceTree = "<group>"; };
 		F86187751E421B0D005483C0 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		F8EA728C1E43A9D500F13AC5 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				F86187691E3B8CFF005483C0 /* Model */,
 				F86187681E3B8CF7005483C0 /* ServiceFacade */,
+				F8EA728B1E43A99600F13AC5 /* ViewControllers */,
 				F86187731E420E88005483C0 /* MediaSingleton.swift */,
 				F86187751E421B0D005483C0 /* MovieTableViewCell.swift */,
 			);
@@ -170,6 +173,14 @@
 				F861876C1E3BCB8A005483C0 /* MediaType.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F8EA728B1E43A99600F13AC5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F8EA728C1E43A9D500F13AC5 /* NowPlayingViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F86187701E3F9A9B005483C0 /* MoviesFacade.swift in Sources */,
+				F8EA728D1E43A9D500F13AC5 /* NowPlayingViewController.swift in Sources */,
 				F861876D1E3BCB8A005483C0 /* MediaType.swift in Sources */,
 				F50BD2AD1E37A41D008821F8 /* ViewController.swift in Sources */,
 				F50BD2AB1E37A41D008821F8 /* AppDelegate.swift in Sources */,

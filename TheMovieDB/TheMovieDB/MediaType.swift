@@ -2,7 +2,7 @@
 //  MediaType.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 1/27/17.
+//  Created by Luis Ramirez on 1/27/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 

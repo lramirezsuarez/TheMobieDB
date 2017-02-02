@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 1/24/17.
+//  Created by Luis Ramirez on 1/24/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 

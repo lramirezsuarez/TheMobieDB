@@ -2,7 +2,7 @@
 //  MediaSingleton.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 2/1/17.
+//  Created by Luis Ramirez on 2/1/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 
@@ -14,5 +14,5 @@ class MediaSingleton {
     
     let host : String = "https://api.themoviedb.org/3"
     let apiKey : String = "?api_key=1f4d7de5836b788bdfd897c3e0d0a24b"
-    let imageURL : String = "https://image.tmdb.org/t/p/original/"
+    let imageURL : String = "https://image.tmdb.org/t/p/w500/"
 }

@@ -2,7 +2,7 @@
 //  MovieTableViewCell.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 2/1/17.
+//  Created by Luis Ramirez on 2/1/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 
@@ -13,4 +13,5 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var releaseDateLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var posterImage: UIImageView!
+    @IBOutlet var ratingLabel: UILabel!
 }
