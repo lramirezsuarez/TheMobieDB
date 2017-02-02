@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var movies = [Movie]()
     var page = 1
     var totalPages = 0
-    var array : [String] = ["1","2","3","4","5"]
     
     @IBOutlet var tableViewMovies: UITableView!
     
@@ -24,7 +24,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let totalPages = moviesResponse?.totalPages else {
                     return
             }
-            print(resultMovies)
             self.movies.append(contentsOf: resultMovies)
             self.totalPages = totalPages
             self.tableViewMovies.reloadData()
@@ -33,18 +32,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "MovieTableViewCell"//
+        let cellIdentifier = "MovieTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MovieTableViewCell
-//
-//        let movie = movies[indexPath.row]
-//        
-//        cell.nameLabel?.text = movie.name
-        cell.nameLabel.text = array[indexPath.row]
+
+        let movie = movies[indexPath.row]
         
+        cell.nameLabel?.text = movie.name
+        cell.overviewLabel?.text = movie.overview
+        cell.releaseDateLabel?.text = "Release date: \(movie.year)"
+        cell.posterImage?.af_setImage(withURL: movie.poster)
+
         return cell
     }
     

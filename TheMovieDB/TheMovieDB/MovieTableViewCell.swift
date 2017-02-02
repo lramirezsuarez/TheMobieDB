@@ -10,5 +10,7 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
-
+    @IBOutlet var releaseDateLabel: UILabel!
+    @IBOutlet var overviewLabel: UILabel!
+    @IBOutlet var posterImage: UIImageView!
 }

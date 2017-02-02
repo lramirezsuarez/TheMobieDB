@@ -30,8 +30,8 @@ class MoviesResponse {
             guard let id = result["id"] as? Int,
             let name = result["title"] as? String,
             let overview = result["overview"] as? String,
-            let year = result["release_date"] as? Int,
-            let rating = result["vote_average"] as? Int,
+            let year = result["release_date"] as? String,
+            let rating = result["vote_average"] as? Double,
             let poster = result["poster_path"] as? String
                 else {
                     return
