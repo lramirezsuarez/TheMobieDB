@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
-            self.movies = resultMovies
+            self.movies.append(contentsOf: resultMovies)
             self.totalPages = totalPages
             self.tableViewMovies.reloadData()
         }

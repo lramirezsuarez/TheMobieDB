@@ -1,15 +1,15 @@
 //
-//  NowPlayingViewController.swift
+//  TopRatedViewController.swift
 //  TheMovieDB
 //
-//  Created by Luis Ramirez on 2/2/17.
+//  Created by Jaime Laino on 2/3/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 
 import UIKit
 import AlamofireImage
 
-class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TopRatedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var movies = [Movie]()
     var page = 1
     var totalPages = 0
@@ -22,11 +22,11 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
         loadDataToTable()
         self.tableViewMovies.refreshControl = refreshControl
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl.addTarget(self, action: #selector(NowPlayingViewController.refreshAction(sender:)), for: UIControlEvents.valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(TopRatedViewController.refreshAction(sender:)), for: UIControlEvents.valueChanged)
     }
     
     func loadDataToTable() {
-        MoviesFacade.RetrieveInfo(mediaType: .nowPlaying, page: page) {
+        MoviesFacade.RetrieveInfo(mediaType: .topRated, page: page) {
             (moviesResponse, error) in
             guard let resultMovies = moviesResponse?.movies,
                 let totalPages = moviesResponse?.totalPages else {
@@ -75,11 +75,6 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = movies[indexPath.row]
-        displayMessage(title: "Selected", message: "You selected \(movie.name)")
-    }
-    
     func displayMessage(title: String, message : String) {
         let refreshAlert = UIAlertController(title: title,
                                              message: message,
@@ -88,5 +83,3 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
         present(refreshAlert, animated: true, completion: nil)
     }
 }
-
-

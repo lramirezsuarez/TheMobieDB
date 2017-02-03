@@ -24,7 +24,7 @@ struct MoviesFacade {
                     completionHandler(nil, response.result.error as NSError?)
                     return
             }
-             let movies  = MoviesResponse(json : json)!
+            let movies  = MoviesResponse(json : json)!
             completionHandler(movies, nil)
         }
     }
