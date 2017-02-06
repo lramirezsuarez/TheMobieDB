@@ -12,7 +12,7 @@ import Alamofire
 typealias MoviesResponseHandler = (_ moviesResponse : MoviesResponse?, _ error: NSError?) -> Void
 
 struct MoviesFacade {
-  
+    
     
     static func RetrieveInfo (mediaType : MediaType, page : Int, completionHandler : @escaping MoviesResponseHandler){
         let pageURL = "&page=\(page)"
@@ -24,8 +24,17 @@ struct MoviesFacade {
                     completionHandler(nil, response.result.error as NSError?)
                     return
             }
-            let movies  = MoviesResponse(json : json)!
-            completionHandler(movies, nil)
+            let urlGenre = MediaSingleton.sharedInstance.host+"/genre/movie/list"+MediaSingleton.sharedInstance.apiKey
+            Alamofire.request(urlGenre).responseJSON{
+                response in
+                guard let jsonGenre = response.result.value as? [String: AnyObject]
+                    else {
+                        completionHandler(nil, response.result.error as NSError?)
+                        return
+                }
+                let movies  = MoviesResponse(json : json, genre : jsonGenre)!
+                completionHandler(movies, nil)
+            }
         }
     }
 }

@@ -19,16 +19,17 @@ class MoviesResponse {
         self.message = ""
     }
     
-    convenience init? (json : [String: AnyObject]) {
+    convenience init? (json : [String: AnyObject], genre : [String: AnyObject]) {
         self.init(movies : [])
         guard let results = json["results"] as? [[String : AnyObject]],
-            let totalPages = json["total_pages"] as? Int
+            let totalPages = json["total_pages"] as? Int,
+            let resultGenre = genre["genres"] as? [[String : AnyObject]]
             else {
                 let statusCode = json["status_code"] as? Int
                 let statusMessage = json["status_message"] as? String
                 self.message = "\(statusCode): \(statusMessage)"
                 return nil
-        }        
+        }
         self.totalPages = totalPages
         for result in results {
             guard let id = result["id"] as? Int,
@@ -43,13 +44,23 @@ class MoviesResponse {
                 let background = result["backdrop_path"] as? String,
                 let popularity = result["popularity"] as? Double,
                 let votes = result["vote_count"] as? Int,
-                let genre = result["genre_ids"] as? [Int]
+                let genres = result["genre_ids"] as? [Int]
                 else {
                     return
             }
+            var genreString = ""
+            for genreType in resultGenre {
+                for genre in genres {
+                    let genreId = genreType["id"] as? Int
+                    let genreName = genreType["name"] as? String
+                    if genre == genreId {
+                        genreString = genreString + genreName! + " | "
+                    }
+                }
+            }
             let posterURL = MediaSingleton.sharedInstance.imageURL+poster
             let backgroundURL = MediaSingleton.sharedInstance.imageURL+background
-            let movie = Movie(id: id, name: name, originalName: originalName, overview: overview, year: year, rating: rating, poster: URL(string: posterURL)!, adult: adult, originalLanguage: originalLanguage, background: URL(string: backgroundURL), popularity: popularity, votes: votes, genre: genre)
+            let movie = Movie(id: id, name: name, originalName: originalName, overview: overview, year: year, rating: rating, poster: URL(string: posterURL)!, adult: adult, originalLanguage: originalLanguage, background: URL(string: backgroundURL), popularity: popularity, votes: votes, genre: genreString)
             self.movies.append(movie)
         }
     }

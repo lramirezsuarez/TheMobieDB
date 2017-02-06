@@ -21,7 +21,7 @@ protocol MediaInfo {
     var bakground : URL? { get }
     var popularity : Double { get set }
     var votes : Int { get }
-    var genre : [Int] { get }
+    var genre : String { get }
 }
 
 struct Movie : MediaInfo {
@@ -37,9 +37,9 @@ struct Movie : MediaInfo {
     var bakground: URL?
     var popularity: Double
     var votes: Int
-    var genre: [Int]
+    var genre: String
     
-    init (id : Int, name : String, originalName : String, overview : String, year : String, rating : Double, poster : URL, adult : Bool, originalLanguage : String, background : URL?, popularity : Double, votes : Int, genre : [Int]) {
+    init (id : Int, name : String, originalName : String, overview : String, year : String, rating : Double, poster : URL, adult : Bool, originalLanguage : String, background : URL?, popularity : Double, votes : Int, genre : String) {
         self.id = id
         self.name = name
         self.originalName = originalName
