@@ -63,6 +63,7 @@ class TopRatedViewController: UIViewController, UITableViewDelegate, UITableView
         let movie = movies[indexPath.row]
         
         cell.nameLabel.text = movie.name
+        cell.genreLabel.text = movie.genre
         cell.overviewLabel.text = movie.overview
         cell.releaseDateLabel.text = "Release date: \(movie.year)"
         
