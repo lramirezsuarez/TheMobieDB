@@ -14,7 +14,7 @@ class MediaSingleton {
     
     let host : String = "https://api.themoviedb.org/3"
     let apiKey : String = "1f4d7de5836b788bdfd897c3e0d0a24b"
-    let imageURL : String = "https://image.tmdb.org/t/p/w500/"
+    let imageURL : String = "https://image.tmdb.org/t/p/w780/"
     
     private init() {}
 }

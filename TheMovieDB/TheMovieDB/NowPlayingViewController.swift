@@ -14,6 +14,7 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
     var page = 1
     var totalPages = 0
     var refreshControl = UIRefreshControl()
+    let segueIdentifier = "ShowSegue"
     
     @IBOutlet var tableViewMovies: UITableView!
     
@@ -30,9 +31,7 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
             (moviesResponse, error) in
             guard let resultMovies = moviesResponse?.movies,
                 let totalPages = moviesResponse?.totalPages else {
-                    let errorCode = error?.code
-                    let errorDescription = error?.localizedDescription
-                    self.displayMessage(title: "\(errorCode)", message: errorDescription!)
+                    self.displayMessage(title: "Error", message: "\(error!)")
                     return
             }
             if self.refreshControl.isRefreshing {
@@ -76,9 +75,13 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = movies[indexPath.row]
-        displayMessage(title: "Selected", message: "You selected \(movie.name)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdentifier,
+            let destination = segue.destination as? MovieDetailViewController,
+            let movieIndex = tableViewMovies.indexPathForSelectedRow?.row
+        {
+            destination.detail = movies[movieIndex]
+        }
     }
     
     func displayMessage(title: String, message : String) {

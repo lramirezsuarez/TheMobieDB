@@ -11,7 +11,6 @@ import Foundation
 protocol MediaInfo {
     var id : Int { get }
     var name : String { get }
-    var originalName : String { get }
     var overview : String { get }
     var year : String { get }
     var rating : Double { get set}
@@ -27,7 +26,6 @@ protocol MediaInfo {
 struct Movie : MediaInfo {
     var id : Int
     var name : String
-    var originalName: String
     var overview : String
     var year : String
     var rating : Double
@@ -39,10 +37,9 @@ struct Movie : MediaInfo {
     var votes: Int
     var genre: String
     
-    init (id : Int, name : String, originalName : String, overview : String, year : String, rating : Double, poster : URL, adult : Bool, originalLanguage : String, background : URL?, popularity : Double, votes : Int, genre : String) {
+    init (id : Int, name : String, overview : String, year : String, rating : Double, poster : URL, adult : Bool, originalLanguage : String, background : URL?, popularity : Double, votes : Int, genre : String) {
         self.id = id
         self.name = name
-        self.originalName = originalName
         self.overview = overview
         self.year = year
         self.rating = rating
