@@ -70,7 +70,7 @@ class TopRatedViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.posterImage.af_setImage(withURL: movie.poster, placeholderImage: #imageLiteral(resourceName: "poster-placeholder"),
                                      filter: filter, imageTransition: .flipFromBottom(0.5))
-        cell.ratingLabel.text = "\(movie.rating)/10"
+        cell.ratingLabel.text = "\(movie.rating)/5"
         
         return cell
     }
