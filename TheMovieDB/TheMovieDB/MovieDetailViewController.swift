@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Cosmos
 
 class MovieDetailViewController: UIViewController {
     var detail : Movie?
@@ -18,8 +19,11 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet var genresLabel: UILabel!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var overviewTextView: UITextView!
+    @IBOutlet var ratingCosmosView: CosmosView!
+    @IBOutlet var ratingLabel: UILabel!
     @IBOutlet var popularityLabel: UILabel!
     @IBOutlet var votesLabel: UILabel!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,8 @@ class MovieDetailViewController: UIViewController {
         genresLabel.text = detail?.genre
         yearLabel.text = detail?.year
         overviewTextView.text = detail?.overview
+        ratingCosmosView.rating = (detail?.rating)!
+        ratingLabel.text = "Rating:\(detail!.rating)/5"
         popularityLabel.text = "Popularity: \(detail!.popularity)%"
         votesLabel.text = "Votes: \(detail!.votes)"
     }
