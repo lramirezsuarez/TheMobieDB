@@ -9,11 +9,12 @@
 import UIKit
 import AlamofireImage
 
-class MovieCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MovieCollectionViewController: UIViewController {
     var movies = [Movie]()
     var page = 1
     var totalPages = 0
     let segueIdentifier = "ShowSegue"
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet var collectionViewMovies : UICollectionView!
     
@@ -21,8 +22,9 @@ class MovieCollectionViewController: UIViewController, UICollectionViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDataToCollection()
-
-        // Do any additional setup after loading the view.
+        self.collectionViewMovies.refreshControl = refreshControl
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: #selector(MovieCollectionViewController.refreshAction(sender:)), for: UIControlEvents.valueChanged)
     }
 
     func loadDataToCollection() {
@@ -33,27 +35,42 @@ class MovieCollectionViewController: UIViewController, UICollectionViewDelegate,
                     self.displayMessage(title: "Error", message: "\(error!)")
                     return
             }
-            print(resultMovies)
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
             self.movies.append(contentsOf: resultMovies)
             self.totalPages = totalPages
             self.collectionViewMovies.reloadData()
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == segueIdentifier,
-//            let destination = segue.destination as? MovieDetailViewController,
-//            let movieIndex = collectionViewMovies.indexPathsForSelectedItems
-//        {
-//            destination.detail = movies[movieIndex]
-//        }
-//    }
+    func refreshAction(sender: UIRefreshControl) {
+        self.page = 1
+        self.movies.removeAll()
+        self.collectionViewMovies.reloadData()
+        self.loadDataToCollection()
+    }
+    
+    func displayMessage(title: String, message : String) {
+        let refreshAlert = UIAlertController(title: title,
+                                             message: message,
+                                             preferredStyle: UIAlertControllerStyle.alert)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == segueIdentifier,
+                let destination = segue.destination as? MovieDetailViewController,
+                let movieIndex = collectionViewMovies.indexPathsForSelectedItems?.first
+            {
+                destination.detail = movies[movieIndex.item]
+            }
+        }
+}
 
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = self.collectionView.bounds.size.width
-//        let height = self.collectionView.bounds.size.height
-//        return CGSize(width: width/3, height: height/3)
-//    }
+
+extension MovieCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
@@ -63,7 +80,6 @@ class MovieCollectionViewController: UIViewController, UICollectionViewDelegate,
         let cell = collectionViewMovies.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MovieCollectionViewCell
         
         let movie = movies[indexPath.row]
-        print(movie)
         let filter = RoundedCornersFilter(radius: 10.0)
         
         cell.titleLabel.text = movie.name
@@ -73,28 +89,5 @@ class MovieCollectionViewController: UIViewController, UICollectionViewDelegate,
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        displayMessage(title: "Movie", message: "\(movies[indexPath.row].name)")
-    }
-
-    func displayMessage(title: String, message : String) {
-        let refreshAlert = UIAlertController(title: title,
-                                             message: message,
-                                             preferredStyle: UIAlertControllerStyle.alert)
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(refreshAlert, animated: true, completion: nil)
-    }
-
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        
-//    }
-    /*
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

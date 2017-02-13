@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NowPlayingViewController: UIViewController {
     var movies = [Movie]()
     var page = 1
     var totalPages = 0
@@ -50,6 +50,25 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
         self.loadDataToTable()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdentifier,
+            let destination = segue.destination as? MovieDetailViewController,
+            let movieIndex = tableViewMovies.indexPathForSelectedRow?.row
+        {
+            destination.detail = movies[movieIndex]
+        }
+    }
+    
+    func displayMessage(title: String, message : String) {
+        let refreshAlert = UIAlertController(title: title,
+                                             message: message,
+                                             preferredStyle: UIAlertControllerStyle.alert)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(refreshAlert, animated: true, completion: nil)
+    }
+}
+
+extension NowPlayingViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -74,23 +93,7 @@ class NowPlayingViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier,
-            let destination = segue.destination as? MovieDetailViewController,
-            let movieIndex = tableViewMovies.indexPathForSelectedRow?.row
-        {
-            destination.detail = movies[movieIndex]
-        }
-    }
-    
-    func displayMessage(title: String, message : String) {
-        let refreshAlert = UIAlertController(title: title,
-                                             message: message,
-                                             preferredStyle: UIAlertControllerStyle.alert)
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(refreshAlert, animated: true, completion: nil)
-    }
+
 }
 
 

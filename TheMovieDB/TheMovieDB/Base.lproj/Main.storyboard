@@ -319,14 +319,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNd-ns-QBn">
-                                        <rect key="frame" x="8" y="56" width="359" height="185"/>
+                                        <rect key="frame" x="8" y="56" width="359" height="171"/>
                                         <string key="text">Overview: Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7C-Mz-ndm" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="8" y="249" width="230" height="21"/>
+                                        <rect key="frame" x="8" y="235" width="230" height="35"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                 <real key="value" value="4"/>
@@ -355,7 +355,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykc-zo-DFz">
-                                        <rect key="frame" x="246" y="249" width="121" height="21"/>
+                                        <rect key="frame" x="246" y="235" width="121" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -692,37 +692,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iVa-Ec-nd4">
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iVa-Ec-nd4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AWw-8h-aaF">
-                                    <size key="itemSize" width="181" height="232"/>
+                                    <size key="itemSize" width="181" height="259"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="jkk-vA-qLb" customClass="MovieCollectionViewCell" customModule="TheMovieDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="232"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="181" height="259"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="181" height="232"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="181" height="259"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vSt-XA-Kj3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="177"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSt-XA-Kj3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="259"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu2-x7-rBf">
-                                                    <rect key="frame" x="0.0" y="175" width="181" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu2-x7-rBf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="181" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29642016267123289" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-Pn-XRe" customClass="CosmosView" customModule="Cosmos">
-                                                    <rect key="frame" x="0.0" y="196" width="181" height="36"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-Pn-XRe" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="0.0" y="224" width="181" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" notEnabled="YES"/>
                                                     </accessibility>
@@ -734,23 +737,12 @@
                                                 </view>
                                             </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="vSt-XA-Kj3" secondAttribute="trailing" id="AAB-AO-9OB"/>
-                                            <constraint firstItem="rVm-Pn-XRe" firstAttribute="top" secondItem="pu2-x7-rBf" secondAttribute="bottom" id="C83-Ih-BuT"/>
-                                            <constraint firstItem="pu2-x7-rBf" firstAttribute="trailing" secondItem="rVm-Pn-XRe" secondAttribute="trailing" id="LRX-Yb-K6Y"/>
-                                            <constraint firstItem="vSt-XA-Kj3" firstAttribute="top" secondItem="jkk-vA-qLb" secondAttribute="top" id="P7c-Ij-gXZ"/>
-                                            <constraint firstItem="rVm-Pn-XRe" firstAttribute="leading" secondItem="jkk-vA-qLb" secondAttribute="leading" id="YMN-y0-Cx4"/>
-                                            <constraint firstItem="pu2-x7-rBf" firstAttribute="leading" secondItem="rVm-Pn-XRe" secondAttribute="leading" id="c5X-rf-uyh"/>
-                                            <constraint firstItem="rVm-Pn-XRe" firstAttribute="top" secondItem="vSt-XA-Kj3" secondAttribute="bottom" constant="19" id="cEG-fz-50m"/>
-                                            <constraint firstAttribute="bottom" secondItem="rVm-Pn-XRe" secondAttribute="bottom" id="flm-BX-ZhT"/>
-                                            <constraint firstAttribute="trailing" secondItem="rVm-Pn-XRe" secondAttribute="trailing" id="gCN-JE-Jwn"/>
-                                            <constraint firstItem="vSt-XA-Kj3" firstAttribute="leading" secondItem="jkk-vA-qLb" secondAttribute="leading" id="iPb-Hb-3FP"/>
-                                            <constraint firstAttribute="bottom" secondItem="pu2-x7-rBf" secondAttribute="bottom" constant="36" id="rad-t9-eR4"/>
-                                        </constraints>
+                                        <size key="customSize" width="181" height="259"/>
                                         <connections>
                                             <outlet property="posterImage" destination="vSt-XA-Kj3" id="WBY-lE-WZh"/>
                                             <outlet property="ratingCosmosView" destination="rVm-Pn-XRe" id="pgy-d2-6Zi"/>
                                             <outlet property="titleLabel" destination="pu2-x7-rBf" id="DEl-AC-EmY"/>
+                                            <segue destination="LDd-EC-BZg" kind="show" identifier="ShowSegue" id="K2Q-AG-6mT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -794,9 +786,7 @@
         <scene sceneID="bQM-EO-0Ib">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wYL-Bf-eHd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Popular" image="popular" id="UA3-4w-eBa">
-                        <inset key="imageInsets" minX="2" minY="4" maxX="0.0" maxY="4"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Popular" image="popular" id="UA3-4w-eBa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lDJ-zP-mVA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -853,7 +843,7 @@
         <scene sceneID="477-sD-dlp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m9n-DT-kiw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Collection" id="IrH-Zb-qjJ"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="nowPlaying" id="IrH-Zb-qjJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ao6-eX-trP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -876,6 +866,6 @@
         <image name="upcoming" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jb6-Rv-pZW"/>
+        <segue reference="K2Q-AG-6mT"/>
     </inferredMetricsTieBreakers>
 </document>
