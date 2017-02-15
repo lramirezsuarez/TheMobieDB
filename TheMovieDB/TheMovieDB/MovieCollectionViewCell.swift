@@ -9,9 +9,10 @@
 import UIKit
 import Cosmos
 
-class MovieCollectionViewCell: UICollectionViewCell {
+class MovieCollectionViewCell: UICollectionViewCell, MovieCell {
     
-    @IBOutlet var posterImage: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var ratingCosmosView: CosmosView!
+    
+    @IBOutlet var posterImage: UIImageView?
+    @IBOutlet var titleLabel: UILabel?
+    @IBOutlet var ratingCosmos: CosmosView?
 }

@@ -59,15 +59,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let movie = movies[indexPath.row]
         
-        cell.nameLabel.text = movie.name
+        cell.titleLabel?.text = movie.name
         cell.overviewLabel.text = movie.overview
         cell.releaseDateLabel.text = "Release date: \(movie.year)"
         
         let filter = AspectScaledToFillSizeWithRoundedCornersFilter(size: #imageLiteral(resourceName: "poster-placeholder").size, radius: 10.0)
         
-        cell.posterImage.af_setImage(withURL: movie.poster, placeholderImage: #imageLiteral(resourceName: "poster-placeholder"),
+        cell.posterImage?.af_setImage(withURL: movie.poster, placeholderImage: #imageLiteral(resourceName: "poster-placeholder"),
                                      filter: filter, imageTransition: .flipFromBottom(0.5))
-        cell.ratingLabel.text = "\(movie.rating)/10"
+        cell.ratingCosmos?.rating = movie.rating
 
         return cell
     }

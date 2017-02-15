@@ -80,16 +80,16 @@ extension TopRatedViewController : UITableViewDelegate, UITableViewDataSource {
         
         let movie = movies[indexPath.row]
         
-        cell.nameLabel.text = movie.name
+        cell.titleLabel?.text = movie.name
         cell.genreLabel.text = movie.genre
         cell.overviewLabel.text = movie.overview
         cell.releaseDateLabel.text = "Release date: \(movie.year)"
         
         let filter = RoundedCornersFilter(radius: 10.0)
         
-        cell.posterImage.af_setImage(withURL: movie.poster, placeholderImage: #imageLiteral(resourceName: "poster-placeholder"),
+        cell.posterImage?.af_setImage(withURL: movie.poster, placeholderImage: #imageLiteral(resourceName: "poster-placeholder"),
                                      filter: filter, imageTransition: .flipFromBottom(0.5))
-        cell.ratingLabel.text = "\(movie.rating)/5"
+        cell.ratingCosmos?.rating = movie.rating
         
         return cell
     }

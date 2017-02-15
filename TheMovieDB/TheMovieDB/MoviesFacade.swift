@@ -19,7 +19,6 @@ struct MoviesFacade {
             response in
             guard let json = response.result.value as? [String: AnyObject]
                 else {
-                    print(response.result.error!)
                     completionHandler(nil, response.result.error?.localizedDescription as String?)
                     return
             }

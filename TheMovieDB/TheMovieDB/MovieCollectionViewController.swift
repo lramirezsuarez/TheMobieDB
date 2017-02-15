@@ -9,20 +9,22 @@
 import UIKit
 import AlamofireImage
 
-class MovieCollectionViewController: UIViewController {
+class MovieCollectionViewController: UIViewController, MediaViewControllerDelegate {
     var movies = [Movie]()
     var page = 1
     var totalPages = 0
     let segueIdentifier = "ShowSegue"
     var refreshControl = UIRefreshControl()
     
-    @IBOutlet var collectionViewMovies : UICollectionView!
+//    @IBOutlet var collectionViewMovies : UICollectionView!
     
+    @IBOutlet var listView: MediaCollection!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        listView.myListDelegate = self
         loadDataToCollection()
-        self.collectionViewMovies.refreshControl = refreshControl
+        self.listView.refreshControl = refreshControl
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(MovieCollectionViewController.refreshAction(sender:)), for: UIControlEvents.valueChanged)
     }
@@ -40,14 +42,14 @@ class MovieCollectionViewController: UIViewController {
             }
             self.movies.append(contentsOf: resultMovies)
             self.totalPages = totalPages
-            self.collectionViewMovies.reloadData()
+            self.listView.reloadData()
         }
     }
     
     func refreshAction(sender: UIRefreshControl) {
         self.page = 1
         self.movies.removeAll()
-        self.collectionViewMovies.reloadData()
+        self.listView.reloadData()
         self.loadDataToCollection()
     }
     
@@ -62,14 +64,28 @@ class MovieCollectionViewController: UIViewController {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == segueIdentifier,
                 let destination = segue.destination as? MovieDetailViewController,
-                let movieIndex = collectionViewMovies.indexPathsForSelectedItems?.first
+                let movieIndex = listView.indexPathsForSelectedItems?.first
             {
                 destination.detail = movies[movieIndex.item]
             }
         }
+    
+    func getNumberOfCells() -> Int {
+        return movies.count
+    }
+    
+    func setupCell(_ cell: MovieCell, indexPath: IndexPath) {
+        let movie = movies[indexPath.item]
+        cell.titleLabel?.text = movie.name
+        let filter = RoundedCornersFilter(radius: 10.0)
+        cell.posterImage?.af_setImage(withURL: (movie.poster), placeholderImage: #imageLiteral(resourceName: "poster-placeholder"), filter: filter, imageTransition: .flipFromTop(0.4))
+        cell.ratingCosmos?.rating = movie.rating
+    }
 }
 
 
+
+/*
 extension MovieCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -90,4 +106,4 @@ extension MovieCollectionViewController : UICollectionViewDataSource, UICollecti
     }
     
 
-}
+}*/
