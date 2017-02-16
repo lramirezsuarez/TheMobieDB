@@ -2,7 +2,7 @@
 //  MovieCollectionViewController.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 2/9/17.
+//  Created by Luis Ramirez on 2/9/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 
@@ -15,8 +15,6 @@ class MovieCollectionViewController: UIViewController, MediaViewControllerDelega
     var totalPages = 0
     let segueIdentifier = "ShowSegue"
     var refreshControl = UIRefreshControl()
-    
-//    @IBOutlet var collectionViewMovies : UICollectionView!
     
     @IBOutlet var listView: MediaCollection!
 
@@ -74,36 +72,18 @@ class MovieCollectionViewController: UIViewController, MediaViewControllerDelega
         return movies.count
     }
     
-    func setupCell(_ cell: MovieCell, indexPath: IndexPath) {
+    func setupCell(cell: MovieCell, indexPath: IndexPath) {
         let movie = movies[indexPath.item]
         cell.titleLabel?.text = movie.name
         let filter = RoundedCornersFilter(radius: 10.0)
         cell.posterImage?.af_setImage(withURL: (movie.poster), placeholderImage: #imageLiteral(resourceName: "poster-placeholder"), filter: filter, imageTransition: .flipFromTop(0.4))
         cell.ratingCosmos?.rating = movie.rating
     }
+    
+    func didSelectCell(cell: MovieCell, indexPath: IndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
+        newViewController.detail = movies[indexPath.row]
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
 }
-
-
-
-/*
-extension MovieCollectionViewController : UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellIdentifier = "MovieCollectionViewCell"
-        let cell = collectionViewMovies.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MovieCollectionViewCell
-        
-        let movie = movies[indexPath.row]
-        let filter = RoundedCornersFilter(radius: 10.0)
-        
-        cell.titleLabel.text = movie.name
-        cell.posterImage.af_setImage(withURL: (movie.poster), placeholderImage: #imageLiteral(resourceName: "poster-placeholder"), filter: filter, imageTransition: .flipFromTop(0.4))
-        cell.ratingCosmosView.rating = movie.rating
-        
-        return cell
-    }
-    
-
-}*/

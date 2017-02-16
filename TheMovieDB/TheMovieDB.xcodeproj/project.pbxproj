@@ -215,8 +215,8 @@
 				F8EA728E1E44AACE00F13AC5 /* PopularViewController.swift */,
 				F8EA72901E44AB5000F13AC5 /* TopRatedViewController.swift */,
 				F8EA72921E44AB8D00F13AC5 /* UpcomingViewController.swift */,
-				F845EA571E4A266F00FFDA9C /* MovieDetailViewController.swift */,
 				F845EA5A1E4C93C700FFDA9C /* MovieCollectionViewController.swift */,
+				F845EA571E4A266F00FFDA9C /* MovieDetailViewController.swift */,
 				F82AF74B1E51E1BA0009900C /* MediaViewControllerDelegate.swift */,
 			);
 			name = ViewControllers;

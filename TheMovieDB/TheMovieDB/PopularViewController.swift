@@ -2,7 +2,7 @@
 //  PopularViewController.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 2/3/17.
+//  Created by Luis Ramirez on 2/3/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 
@@ -10,18 +10,19 @@
 import UIKit
 import AlamofireImage
 
-class PopularViewController: UIViewController {
+class PopularViewController: UIViewController, MediaViewControllerDelegate {
     var movies = [Movie]()
     var page = 1
     var totalPages = 0
     var refreshControl = UIRefreshControl()
     let segueIdentifier = "ShowSegue"
     
-    @IBOutlet var tableViewMovies: UITableView!
+    @IBOutlet var tableViewMovies: MediaTable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDataToTable()
+        tableViewMovies.myListDelegate = self
         self.tableViewMovies.refreshControl = refreshControl
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(NowPlayingViewController.refreshAction(sender:)), for: UIControlEvents.valueChanged)
@@ -67,31 +68,26 @@ class PopularViewController: UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(refreshAlert, animated: true, completion: nil)
     }
-}
-extension PopularViewController : UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func getNumberOfCells() -> Int {
         return movies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "MovieTableViewCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MovieTableViewCell
-        
+    func setupCell(cell: MovieCell, indexPath: IndexPath) {
         let movie = movies[indexPath.row]
-        
         cell.titleLabel?.text = movie.name
-        cell.genreLabel.text = movie.genre
-        cell.overviewLabel.text = movie.overview
-        cell.releaseDateLabel.text = "Release date: \(movie.year)"
-        
+        cell.genreLabel?.text = movie.genre
+        cell.overviewLabel?.text = movie.overview
+        cell.releaseDateLabel?.text = "Release Date: \(movie.year)"
         let filter = RoundedCornersFilter(radius: 10.0)
-        
-        cell.posterImage?.af_setImage(withURL: movie.poster, placeholderImage: #imageLiteral(resourceName: "poster-placeholder"),
-                                     filter: filter, imageTransition: .flipFromBottom(0.5))
+        cell.posterImage?.af_setImage(withURL: (movie.poster), placeholderImage: #imageLiteral(resourceName: "poster-placeholder"), filter: filter, imageTransition: .flipFromTop(0.4))
         cell.ratingCosmos?.rating = movie.rating
-        
-        return cell
     }
     
+    func didSelectCell(cell: MovieCell, indexPath: IndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
+        newViewController.detail = movies[indexPath.row]
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
 }

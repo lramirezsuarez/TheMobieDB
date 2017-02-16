@@ -2,7 +2,7 @@
 //  MovieDetailViewController.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 2/7/17.
+//  Created by Luis Ramirez on 2/7/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 

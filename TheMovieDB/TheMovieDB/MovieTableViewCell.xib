@@ -16,9 +16,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KBc-kr-Yb1" id="K1G-gM-n4m">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="223"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="224"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gZ-ug-jHb">
+                        <rect key="frame" x="250" y="40" width="92" height="147"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="92" id="gul-so-vIZ"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIr-kr-rox">
                         <rect key="frame" x="8" y="8" width="334" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -31,12 +37,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gZ-ug-jHb">
-                        <rect key="frame" x="250" y="40" width="92" height="147"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="92" id="gul-so-vIZ"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmP-63-ThQ">
                         <rect key="frame" x="8" y="195" width="234" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -91,10 +91,11 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="genreLabel" destination="IQu-ep-eSS" id="96k-i6-pgf"/>
-                <outlet property="nameLabel" destination="sIr-kr-rox" id="yRU-Mb-FGC"/>
                 <outlet property="overviewLabel" destination="f3K-0H-4AI" id="7qU-TF-vfv"/>
                 <outlet property="posterImage" destination="0gZ-ug-jHb" id="28D-H9-TEJ"/>
+                <outlet property="ratingCosmos" destination="syL-0o-hBo" id="0bL-lu-ouZ"/>
                 <outlet property="releaseDateLabel" destination="nmP-63-ThQ" id="OXx-xk-fT3"/>
+                <outlet property="titleLabel" destination="sIr-kr-rox" id="8KU-L8-xZV"/>
             </connections>
             <point key="canvasLocation" x="-333" y="-448"/>
         </tableViewCell>

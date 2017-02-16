@@ -2,7 +2,7 @@
 //  MovieCollectionViewCell.swift
 //  TheMovieDB
 //
-//  Created by Jaime Laino on 2/9/17.
+//  Created by Luis Ramirez on 2/9/17.
 //  Copyright © 2017 Globant. All rights reserved.
 //
 
@@ -11,8 +11,10 @@ import Cosmos
 
 class MovieCollectionViewCell: UICollectionViewCell, MovieCell {
     
-    
-    @IBOutlet var posterImage: UIImageView?
     @IBOutlet var titleLabel: UILabel?
+    @IBOutlet var genreLabel: UILabel?
+    @IBOutlet var overviewLabel: UILabel?
+    @IBOutlet var posterImage: UIImageView?
     @IBOutlet var ratingCosmos: CosmosView?
+    @IBOutlet var releaseDateLabel: UILabel?
 }

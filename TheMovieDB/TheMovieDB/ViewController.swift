@@ -60,8 +60,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let movie = movies[indexPath.row]
         
         cell.titleLabel?.text = movie.name
-        cell.overviewLabel.text = movie.overview
-        cell.releaseDateLabel.text = "Release date: \(movie.year)"
+        cell.overviewLabel?.text = movie.overview
+        cell.releaseDateLabel?.text = "Release date: \(movie.year)"
         
         let filter = AspectScaledToFillSizeWithRoundedCornersFilter(size: #imageLiteral(resourceName: "poster-placeholder").size, radius: 10.0)
         
