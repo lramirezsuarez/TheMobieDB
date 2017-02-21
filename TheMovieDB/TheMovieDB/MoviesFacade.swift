@@ -32,7 +32,7 @@ struct MoviesFacade {
             case 404?:
                 let statusCode = json["status_code"] as? Int
                 let statusMessage = json["status_message"] as? String
-                 let message = "\(statusCode!): \(statusMessage!)"
+                let message = "\(statusCode!): \(statusMessage!)"
                 completionHandler(nil, message as String?)
                 break
             case 200?:

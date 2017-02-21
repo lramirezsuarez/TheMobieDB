@@ -51,14 +51,14 @@ class NowPlayingViewController: UIViewController, MediaViewControllerDelegate {
         self.loadDataToTable()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueIdentifier,
-            let destination = segue.destination as? MovieDetailViewController,
-            let movieIndex = tableViewMovies.indexPathForSelectedRow?.row
-        {
-            destination.detail = movies[movieIndex]
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == segueIdentifier,
+//            let destination = segue.destination as? MovieDetailViewController,
+//            let movieIndex = tableViewMovies.indexPathForSelectedRow?.row
+//        {
+//            destination.detail = movies[movieIndex]
+//        }
+//    }
     
     func displayMessage(title: String, message : String) {
         let refreshAlert = UIAlertController(title: title,
@@ -88,6 +88,6 @@ class NowPlayingViewController: UIViewController, MediaViewControllerDelegate {
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MovieDetailViewController") as! MovieDetailViewController
         newViewController.detail = movies[indexPath.row]
         self.navigationController?.pushViewController(newViewController, animated: true)
-//        self.present(newViewController, animated: true, completion: nil)
+        //        self.present(newViewController, animated: true, completion: nil)
     }
 }

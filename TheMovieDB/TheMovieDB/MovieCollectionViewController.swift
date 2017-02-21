@@ -17,7 +17,7 @@ class MovieCollectionViewController: UIViewController, MediaViewControllerDelega
     var refreshControl = UIRefreshControl()
     
     @IBOutlet var listView: MediaCollection!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         listView.myListDelegate = self
@@ -26,7 +26,7 @@ class MovieCollectionViewController: UIViewController, MediaViewControllerDelega
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(MovieCollectionViewController.refreshAction(sender:)), for: UIControlEvents.valueChanged)
     }
-
+    
     func loadDataToCollection() {
         MoviesFacade.RetrieveInfo(mediaType: .upcoming, page: page) {
             (moviesResponse, error) in
@@ -58,15 +58,6 @@ class MovieCollectionViewController: UIViewController, MediaViewControllerDelega
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(refreshAlert, animated: true, completion: nil)
     }
-    
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == segueIdentifier,
-                let destination = segue.destination as? MovieDetailViewController,
-                let movieIndex = listView.indexPathsForSelectedItems?.first
-            {
-                destination.detail = movies[movieIndex.item]
-            }
-        }
     
     func getNumberOfCells() -> Int {
         return movies.count

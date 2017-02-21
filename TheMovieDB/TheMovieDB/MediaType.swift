@@ -15,7 +15,6 @@ enum MediaType {
     case upcoming
 }
 
-
 extension MediaType{
     var Route: String {
         switch self {

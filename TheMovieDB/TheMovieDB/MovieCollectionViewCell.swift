@@ -9,8 +9,7 @@
 import UIKit
 import Cosmos
 
-class MovieCollectionViewCell: UICollectionViewCell, MovieCell {
-    
+class MovieCollectionViewCell: UICollectionViewCell, MovieCell {    
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var genreLabel: UILabel?
     @IBOutlet var overviewLabel: UILabel?

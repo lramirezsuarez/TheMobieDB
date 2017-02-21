@@ -12,7 +12,7 @@ import Cosmos
 
 class MovieDetailViewController: UIViewController {
     var detail : Movie?
-
+    
     
     @IBOutlet var posterImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
@@ -23,12 +23,10 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet var ratingLabel: UILabel!
     @IBOutlet var popularityLabel: UILabel!
     @IBOutlet var votesLabel: UILabel!
- 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +40,7 @@ class MovieDetailViewController: UIViewController {
         popularityLabel.text = "Popularity: \(detail!.popularity)%"
         votesLabel.text = "Votes: \(detail!.votes)"
     }
-
-
-
+    
+    
+    
 }

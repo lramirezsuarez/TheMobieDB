@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableViewMovies.reloadData()
         self.loadDataToTable()
     }
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MovieTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MovieTableViewCell
-
+        
         let movie = movies[indexPath.row]
         
         cell.titleLabel?.text = movie.name
@@ -66,9 +66,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let filter = AspectScaledToFillSizeWithRoundedCornersFilter(size: #imageLiteral(resourceName: "poster-placeholder").size, radius: 10.0)
         
         cell.posterImage?.af_setImage(withURL: movie.poster, placeholderImage: #imageLiteral(resourceName: "poster-placeholder"),
-                                     filter: filter, imageTransition: .flipFromBottom(0.5))
+                                      filter: filter, imageTransition: .flipFromBottom(0.5))
         cell.ratingCosmos?.rating = movie.rating
-
+        
         return cell
     }
 }
