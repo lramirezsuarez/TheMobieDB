@@ -14,8 +14,8 @@ typealias MoviesResponseHandler = (_ moviesResponse : MoviesResponse?, _ error: 
 struct MoviesFacade {
     
     static func RetrieveInfo (mediaType : MediaType, page : Int, completionHandler : @escaping MoviesResponseHandler){
-        let url = MediaSingleton.sharedInstance.host+"\(mediaType.Route)"
-        Alamofire.request(url, parameters: ["api_key" : MediaSingleton.sharedInstance.apiKey, "page" : page, "language" : NSLocale.current.languageCode!]).responseJSON{
+        let url = MediaSingleton.host+"\(mediaType.Route)"
+        Alamofire.request(url, parameters: ["api_key" : MediaSingleton.apiKey, "page" : page, "language" : NSLocale.current.languageCode!]).responseJSON{
             response in
             guard let json = response.result.value as? [String: AnyObject]
                 else {
@@ -36,8 +36,8 @@ struct MoviesFacade {
                 completionHandler(nil, message as String?)
                 break
             case 200?:
-                let urlGenre = MediaSingleton.sharedInstance.host+"/genre/movie/list"
-                Alamofire.request(urlGenre, parameters: ["api_key" : MediaSingleton.sharedInstance.apiKey]).responseJSON{
+                let urlGenre = MediaSingleton.host+"/genre/movie/list"
+                Alamofire.request(urlGenre, parameters: ["api_key" : MediaSingleton.apiKey]).responseJSON{
                     response in
                     guard let jsonGenre = response.result.value as? [String: AnyObject]
                         else {

@@ -210,7 +210,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoX-9F-38E">
-                                <rect key="frame" x="0.0" y="20" width="375" height="63"/>
+                                <rect key="frame" x="0.0" y="20" width="294" height="63"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.3029484160958904" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="laR-d6-Z0K"/>
@@ -219,24 +219,39 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsl-L0-Ct4">
+                                <rect key="frame" x="302" y="20" width="73" height="63"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.30294841610000001" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="GMc-Nh-WC5"/>
+                                </constraints>
+                                <state key="normal" image="FavoritesAdded"/>
+                                <connections>
+                                    <action selector="addToFavorites:" destination="LDd-EC-BZg" eventType="touchUpInside" id="eCh-De-Q06"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Rsl-L0-Ct4" firstAttribute="trailing" secondItem="U4P-Ls-eaS" secondAttribute="trailing" id="24m-uE-abT"/>
                             <constraint firstAttribute="trailing" secondItem="U4P-Ls-eaS" secondAttribute="trailing" id="7zi-YE-izg"/>
                             <constraint firstItem="U4P-Ls-eaS" firstAttribute="leading" secondItem="Min-bJ-DPT" secondAttribute="leading" id="HIB-Bq-zaB"/>
                             <constraint firstItem="U4P-Ls-eaS" firstAttribute="top" secondItem="Min-bJ-DPT" secondAttribute="top" constant="319" id="INF-qi-JFm"/>
                             <constraint firstItem="LoX-9F-38E" firstAttribute="leading" secondItem="rkr-df-Nd6" secondAttribute="leading" id="Jzf-bL-KI7"/>
                             <constraint firstItem="LoX-9F-38E" firstAttribute="top" secondItem="rkr-df-Nd6" secondAttribute="top" id="MSd-RF-j53"/>
-                            <constraint firstItem="LoX-9F-38E" firstAttribute="trailing" secondItem="U4P-Ls-eaS" secondAttribute="trailing" id="TID-f4-zfK"/>
                             <constraint firstItem="iRY-d9-7Cl" firstAttribute="top" secondItem="rkr-df-Nd6" secondAttribute="bottom" id="ZMK-D6-YLw"/>
                             <constraint firstItem="iRY-d9-7Cl" firstAttribute="top" secondItem="U4P-Ls-eaS" secondAttribute="bottom" id="ake-Th-YF0"/>
+                            <constraint firstItem="Rsl-L0-Ct4" firstAttribute="leading" secondItem="LoX-9F-38E" secondAttribute="trailing" constant="8" symbolic="YES" id="jAX-NL-tD5"/>
+                            <constraint firstItem="Rsl-L0-Ct4" firstAttribute="top" secondItem="LoX-9F-38E" secondAttribute="top" id="nWN-o4-hve"/>
                             <constraint firstAttribute="trailing" secondItem="rkr-df-Nd6" secondAttribute="trailing" id="o1h-eA-enY"/>
                             <constraint firstItem="rkr-df-Nd6" firstAttribute="top" secondItem="Nkr-ez-cHE" secondAttribute="bottom" id="tBI-w1-B0g"/>
+                            <constraint firstItem="Rsl-L0-Ct4" firstAttribute="bottom" secondItem="LoX-9F-38E" secondAttribute="bottom" id="ywu-qd-Ep9"/>
                             <constraint firstItem="rkr-df-Nd6" firstAttribute="leading" secondItem="Min-bJ-DPT" secondAttribute="leading" id="z8l-Jv-6Ss"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BpO-At-oLg"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="Rsl-L0-Ct4" id="fNt-qi-CFD"/>
                         <outlet property="genresLabel" destination="P2F-ng-i6t" id="c8V-Np-8Af"/>
                         <outlet property="overviewTextView" destination="eNd-ns-QBn" id="SPM-4d-5ax"/>
                         <outlet property="popularityLabel" destination="4Hx-f9-qUf" id="pyI-vk-PmI"/>
@@ -250,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRg-jk-gqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1386" y="-661"/>
+            <point key="canvasLocation" x="-1386.4000000000001" y="-661.61919040479768"/>
         </scene>
         <!--Top Rated View Controller-->
         <scene sceneID="r0g-hy-1iO">
@@ -453,6 +468,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="FavoritesAdded" width="48" height="48"/>
         <image name="nowPlaying" width="48" height="48"/>
         <image name="popular" width="48" height="48"/>
         <image name="topRated" width="48" height="48"/>

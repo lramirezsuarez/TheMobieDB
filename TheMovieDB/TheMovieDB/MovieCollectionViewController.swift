@@ -11,9 +11,6 @@ import AlamofireImage
 
 class MovieCollectionViewController: UIViewController, MediaViewControllerDelegate {
     var movies = [Movie]()
-    var page = 1
-    var totalPages = 0
-    let segueIdentifier = "ShowSegue"
     var refreshControl = UIRefreshControl()
     
     @IBOutlet var listView: MediaCollection!
@@ -28,24 +25,14 @@ class MovieCollectionViewController: UIViewController, MediaViewControllerDelega
     }
     
     func loadDataToCollection() {
-        MoviesFacade.RetrieveInfo(mediaType: .upcoming, page: page) {
-            (moviesResponse, error) in
-            guard let resultMovies = moviesResponse?.movies,
-                let totalPages = moviesResponse?.totalPages else {
-                    self.displayMessage(title: "Error", message: "\(error!)")
-                    return
-            }
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-            self.movies.append(contentsOf: resultMovies)
-            self.totalPages = totalPages
-            self.listView.reloadData()
+        if self.refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
         }
+        self.movies.append(contentsOf: MediaSingleton.sharedInstance.moviesFavorites)
+        self.listView.reloadData()
     }
     
     func refreshAction(sender: UIRefreshControl) {
-        self.page = 1
         self.movies.removeAll()
         self.listView.reloadData()
         self.loadDataToCollection()

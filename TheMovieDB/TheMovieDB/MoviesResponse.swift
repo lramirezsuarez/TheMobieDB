@@ -50,8 +50,8 @@ class MoviesResponse {
         }
         let genreString = parseGenre(resultGenre: resultGenre, genres: genres)
         
-        let posterURL = MediaSingleton.sharedInstance.imageURL+poster
-        let backgroundURL = MediaSingleton.sharedInstance.imageURL+background
+        let posterURL = MediaSingleton.imageURL+poster
+        let backgroundURL = MediaSingleton.imageURL+background
         let movie = Movie(id: id, name: name, overview: overview, year: year, rating: (rating*5/10), poster: URL(string: posterURL)!, adult: adult, originalLanguage: originalLanguage, background: URL(string: backgroundURL), popularity: Double(round(100*popularity)/100), votes: votes, genre: genreString)
         return movie
     }

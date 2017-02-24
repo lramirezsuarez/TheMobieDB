@@ -20,6 +20,8 @@
 		F82AF74C1E51E1BA0009900C /* MediaViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF74B1E51E1BA0009900C /* MediaViewControllerDelegate.swift */; };
 		F82AF74F1E549AAE0009900C /* MediaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF74E1E549AAD0009900C /* MediaTable.swift */; };
 		F82AF7511E549AF90009900C /* MediaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF7501E549AF90009900C /* MediaCollection.swift */; };
+		F83F996E1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83F996D1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift */; };
+		F83F99701E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83F996F1E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift */; };
 		F845EA581E4A266F00FFDA9C /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845EA571E4A266F00FFDA9C /* MovieDetailViewController.swift */; };
 		F845EA5B1E4C93C700FFDA9C /* MovieCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845EA5A1E4C93C700FFDA9C /* MovieCollectionViewController.swift */; };
 		F845EA5D1E4C9A6800FFDA9C /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845EA5C1E4C9A6800FFDA9C /* MovieCollectionViewCell.swift */; };
@@ -67,6 +69,8 @@
 		F82AF74B1E51E1BA0009900C /* MediaViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F82AF74E1E549AAD0009900C /* MediaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTable.swift; sourceTree = "<group>"; };
 		F82AF7501E549AF90009900C /* MediaCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCollection.swift; sourceTree = "<group>"; };
+		F83F996D1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesFacadeTest.swift; sourceTree = "<group>"; };
+		F83F996F1E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesFavoritesFacade.swift; sourceTree = "<group>"; };
 		F845EA571E4A266F00FFDA9C /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		F845EA5A1E4C93C700FFDA9C /* MovieCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewController.swift; sourceTree = "<group>"; };
 		F845EA5C1E4C9A6800FFDA9C /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			children = (
 				F50BD2BF1E37A41D008821F8 /* TheMovieDBTests.swift */,
 				F50BD2C11E37A41D008821F8 /* Info.plist */,
+				F83F996D1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift */,
 			);
 			path = TheMovieDBTests;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			children = (
 				F861876F1E3F9A9B005483C0 /* MoviesFacade.swift */,
 				F86187711E3FD302005483C0 /* MoviesResponse.swift */,
+				F83F996F1E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift */,
 			);
 			name = ServiceFacade;
 			sourceTree = "<group>";
@@ -341,7 +347,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		23A33131D6B77FECC980DEB2 /* [CP] Check Pods Manifest.lock */ = {
@@ -356,7 +362,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9C9C4712CB8A4D1034F4CA3F /* [CP] Embed Pods Frameworks */ = {
@@ -438,6 +444,7 @@
 				F82AF74F1E549AAE0009900C /* MediaTable.swift in Sources */,
 				F8EA72911E44AB5000F13AC5 /* TopRatedViewController.swift in Sources */,
 				F50BD2AB1E37A41D008821F8 /* AppDelegate.swift in Sources */,
+				F83F99701E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift in Sources */,
 				F861876B1E3B8D13005483C0 /* Movie.swift in Sources */,
 				F8EA728F1E44AACE00F13AC5 /* PopularViewController.swift in Sources */,
 				F86187741E420E88005483C0 /* MediaSingleton.swift in Sources */,
@@ -451,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83F996E1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift in Sources */,
 				F50BD2C01E37A41D008821F8 /* TheMovieDBTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
