@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct MoviesFavoritesFacade {
+protocol MoviesFavoritesProtocol {
+    static func addMovieToFavorites(movie: Movie)
+    static func searchMovie(movie: Movie) -> Bool
+}
+
+struct MoviesFavoritesFacade : MoviesFavoritesProtocol {
     
     static func addMovieToFavorites(movie: Movie) {
         if !searchMovie(movie: movie) {

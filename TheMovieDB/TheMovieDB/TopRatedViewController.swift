@@ -29,7 +29,7 @@ class TopRatedViewController: UIViewController, MediaViewControllerDelegate {
     }
     
     func loadDataToTable() {
-        MoviesFacade.RetrieveInfo(mediaType: .topRated, page: page) {
+        MoviesFacade.retrieveInfo(mediaType: .topRated, page: page) {
             (moviesResponse, error) in
             guard let resultMovies = moviesResponse?.movies,
                 let totalPages = moviesResponse?.totalPages else {

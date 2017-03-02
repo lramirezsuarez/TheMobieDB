@@ -28,7 +28,7 @@ class NowPlayingViewController: UIViewController, MediaViewControllerDelegate {
     }
     
     func loadDataToTable() {
-        MoviesFacade.RetrieveInfo(mediaType: .nowPlaying, page: page) {
+        MoviesFacade.retrieveInfo(mediaType: .nowPlaying, page: page) {
             (moviesResponse, error) in
             guard let resultMovies = moviesResponse?.movies,
                 let totalPages = moviesResponse?.totalPages else {

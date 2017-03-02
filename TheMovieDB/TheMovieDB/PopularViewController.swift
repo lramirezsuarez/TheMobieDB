@@ -29,7 +29,7 @@ class PopularViewController: UIViewController, MediaViewControllerDelegate {
     }
     
     func loadDataToTable() {
-        MoviesFacade.RetrieveInfo(mediaType: .popular, page: page) {
+        MoviesFacade.retrieveInfo(mediaType: .popular, page: page) {
             (moviesResponse, error) in
             guard let resultMovies = moviesResponse?.movies,
                 let totalPages = moviesResponse?.totalPages else {

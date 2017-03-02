@@ -20,6 +20,7 @@
 		F82AF74C1E51E1BA0009900C /* MediaViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF74B1E51E1BA0009900C /* MediaViewControllerDelegate.swift */; };
 		F82AF74F1E549AAE0009900C /* MediaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF74E1E549AAD0009900C /* MediaTable.swift */; };
 		F82AF7511E549AF90009900C /* MediaCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82AF7501E549AF90009900C /* MediaCollection.swift */; };
+		F82C7A321E607EFD00AF2188 /* MovieTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C7A311E607EFD00AF2188 /* MovieTest.swift */; };
 		F83F996E1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83F996D1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift */; };
 		F83F99701E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83F996F1E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift */; };
 		F845EA581E4A266F00FFDA9C /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F845EA571E4A266F00FFDA9C /* MovieDetailViewController.swift */; };
@@ -69,6 +70,7 @@
 		F82AF74B1E51E1BA0009900C /* MediaViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F82AF74E1E549AAD0009900C /* MediaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTable.swift; sourceTree = "<group>"; };
 		F82AF7501E549AF90009900C /* MediaCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCollection.swift; sourceTree = "<group>"; };
+		F82C7A311E607EFD00AF2188 /* MovieTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTest.swift; sourceTree = "<group>"; };
 		F83F996D1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesFacadeTest.swift; sourceTree = "<group>"; };
 		F83F996F1E5F1C91005BBDD3 /* MoviesFavoritesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesFavoritesFacade.swift; sourceTree = "<group>"; };
 		F845EA571E4A266F00FFDA9C /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				F50BD2BF1E37A41D008821F8 /* TheMovieDBTests.swift */,
 				F50BD2C11E37A41D008821F8 /* Info.plist */,
 				F83F996D1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift */,
+				F82C7A311E607EFD00AF2188 /* MovieTest.swift */,
 			);
 			path = TheMovieDBTests;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			children = (
 				F82AF74E1E549AAD0009900C /* MediaTable.swift */,
 				F82AF7501E549AF90009900C /* MediaCollection.swift */,
+				F82AF74B1E51E1BA0009900C /* MediaViewControllerDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -223,7 +227,6 @@
 				F8EA72921E44AB8D00F13AC5 /* UpcomingViewController.swift */,
 				F845EA5A1E4C93C700FFDA9C /* MovieCollectionViewController.swift */,
 				F845EA571E4A266F00FFDA9C /* MovieDetailViewController.swift */,
-				F82AF74B1E51E1BA0009900C /* MediaViewControllerDelegate.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83F996E1E5DE6F8005BBDD3 /* MoviesFacadeTest.swift in Sources */,
+				F82C7A321E607EFD00AF2188 /* MovieTest.swift in Sources */,
 				F50BD2C01E37A41D008821F8 /* TheMovieDBTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

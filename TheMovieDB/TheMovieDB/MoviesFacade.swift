@@ -13,7 +13,7 @@ typealias MoviesResponseHandler = (_ moviesResponse : MoviesResponse?, _ error: 
 
 struct MoviesFacade {
     
-    static func RetrieveInfo (mediaType : MediaType, page : Int, completionHandler : @escaping MoviesResponseHandler){
+    static func retrieveInfo (mediaType : MediaType, page : Int, completionHandler : @escaping MoviesResponseHandler){
         let url = MediaSingleton.host+"\(mediaType.Route)"
         Alamofire.request(url, parameters: ["api_key" : MediaSingleton.apiKey, "page" : page, "language" : NSLocale.current.languageCode!]).responseJSON{
             response in
@@ -45,8 +45,8 @@ struct MoviesFacade {
                             completionHandler(nil, response.result.error?.localizedDescription as String?)
                             return
                     }
-                    let movies  = MoviesResponse(json : json, genre : jsonGenre)!
-                    completionHandler(movies, nil)
+                let movieResponse  = MoviesResponse(json : json, genre : jsonGenre)
+                completionHandler(movieResponse, nil)
                 }
                 break
             default:
@@ -56,4 +56,5 @@ struct MoviesFacade {
             }
         }
     }
+    
 }

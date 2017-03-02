@@ -30,7 +30,7 @@ class UpcomingViewController: UIViewController, MediaViewControllerDelegate {
     }
     
     func loadDataToTable() {
-        MoviesFacade.RetrieveInfo(mediaType: .upcoming, page: page) {
+        MoviesFacade.retrieveInfo(mediaType: .upcoming, page: page) {
             (moviesResponse, error) in
             guard let resultMovies = moviesResponse?.movies,
                 let totalPages = moviesResponse?.totalPages else {

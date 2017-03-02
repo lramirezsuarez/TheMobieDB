@@ -47,10 +47,10 @@ class MoviesFacadeTest: XCTestCase {
                 XCTFail("Could not parse correctly. Debug!!")
                 return
             }
-            XCTAssertEqual(movieReponse.totalPages, mockTotalPages)
             waitingForService.fulfill()
+            XCTAssertEqual(movieReponse.totalPages, mockTotalPages)
         }
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 50, handler: nil)
     }
     
     func testNotInternetConnection() {
